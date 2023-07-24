@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "lysia"
+version = "2023.1.0"
+description = "A discord lib."
+authors = ["SubeCraft"]
+license = "MIT"
+
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Other Audience",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Typing :: Typed"
+]
+
+packages = [{include = "lysia"}]
+
+[tool.poetry.urls]
+Homepage = "https://github.com/SubeCraft/Lysia"
+Repository = "https://github.com/SubeCraft/Lysia"
+"Bug Tracker" = "https://github.com/SubeCraft/Lysia/issues"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "3.8.5"
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "1.11.0"
+pyright = "1.1.318"
+ruff = "0.0.280"
+
+[tool.poetry.group.doc.dependencies]
+pdoc = "14.0.0"
+
+[tool.taskipy.tasks]
+run = "python -m lysia"
+lint = "ruff check --config ./config/ruff.toml lysia && pyright -p config"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
