@@ -1,17 +1,19 @@
 [tool.poetry]
 name = "lysia"
-version = "2023.1.0"
+version = "2024.1.0"
 description = "A discord lib."
 authors = ["SubeCraft"]
 license = "MIT"
 
 classifiers = [
     "License :: OSI Approved :: MIT License",
-    "Intended Audience :: Other Audience",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Intended Audience :: Developers",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: Implementation :: CPython",
     "Typing :: Typed"
 ]
@@ -24,20 +26,29 @@ Repository = "https://github.com/SubeCraft/Lysia"
 "Bug Tracker" = "https://github.com/SubeCraft/Lysia/issues"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-aiohttp = "3.8.5"
+python = "^3.12"
+httpx = "0.25.1"
+websockets = "12.0.0"
+dataclass-wizard = "0.22.2"
+colorlog = "6.7.0"
 
 [tool.poetry.group.dev.dependencies]
-taskipy = "1.11.0"
-pyright = "1.1.318"
-ruff = "0.0.280"
+taskipy = "1.12.0"
+pyright = "1.1.334"
+ruff = "0.1.3"
 
 [tool.poetry.group.doc.dependencies]
-pdoc = "14.0.0"
+sphinx = "7.2.6"
+furo = "2023.9.10"
+myst-parser = "2.0.0"
+
+[tool.taskipy.settings]
+runner = "poetry run"
 
 [tool.taskipy.tasks]
-run = "python -m lysia"
-lint = "ruff check --config ./config/ruff.toml lysia && pyright -p config"
+lint = {cmd = "ruff check lysia --preview --fix -e && pyright", help = "Lint, Format & Type Check the project."}
+
+doc = {cmd = "sphinx-build doc doc_lysia", help = "Generate the HTML documentation files."}
 
 [build-system]
 requires = ["poetry-core"]

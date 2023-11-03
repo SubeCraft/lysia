@@ -1,15 +1,18 @@
-from lysia.implementations.rest_client import RestClient
-from lysia.api.http.routes.gateway import get_gateway_bot
 from asyncio import run
+from logging import DEBUG
+
+from lysia.implementations.client import Client
 
 
 async def main() -> None:
-    client = RestClient("TOKEN")
+    client = Client(
+        "TOKEN",
+        logging=True,
+        logging_level=DEBUG
+    )
 
-    data = await client.discord_request(get_gateway_bot())
+    print(await client.rest.get_gateway())
 
-    print(data)
-
-    await client.close()
+    await client.rest.close()
 
 run(main())

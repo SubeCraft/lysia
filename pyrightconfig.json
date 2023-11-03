@@ -1,0 +1,8 @@
+{
+    "include": ["./lysia"],
+
+    "pythonVersion": "3.12",
+    "pythonPlatform": "All",
+
+    "typeCheckingMode": "basic"
+}

@@ -1,0 +1,23 @@
+select = [
+    "ANN",   # flake8-annotations
+    "ASYNC", # flake8-async
+    "B",     # flake8-bugbear
+    "E",     # pycodestyle error
+    "I",     # isort
+    "N",     # pep8-naming
+    "TCH",   # flake8-type-checking
+    "W",     # pycodestyle warning
+]
+
+ignore = [
+    "ANN101", "ANN102", # flake8-annotations
+    "E701",             # pycodestyle error
+    "N818"              # pep8-naming
+]
+
+line-length = 120
+
+output-format = "grouped"
+target-version = "py312"
+
+show-fixes = true
