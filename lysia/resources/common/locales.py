@@ -1,0 +1,40 @@
+__all__ = ("Locales",)
+
+from enum import StrEnum
+
+
+class Locales(StrEnum):
+    """Discord Locales."""
+
+    INDONESIAN = "id"
+    DANISH = "da"
+    GERMAN = "de"
+    ENGLISH_UK = "en-GB"
+    ENGLISH_US = "en-US"
+    SPANISH = "en-ES"
+    SPANISH_LATAM = "es-419"
+    FRENCH = "fr"
+    CROATIAN = "hr"
+    ITALIEN = "it"
+    LITHUANIAN = "lt"
+    HUNGARIAN = "hu"
+    DUTCH = "nl"
+    NORWEGIAN = "no"
+    POLISH = "pl"
+    PORTUGUESE_BRAZILIAN = "pt-BR"
+    ROMANIAN_ROMANIA = "ro"
+    FINNISH = "fi"
+    SWEDISH = "sv-SE"
+    VIETNAMESE = "vi"
+    TURKISH = "tr"
+    CZECH = "cs"
+    GREEK = "el"
+    BULGARIAN = "bg"
+    RUSSIAN = "ru"
+    UKRAINIAN = "uk"
+    HINDI = "hi"
+    THAI = "th"
+    CHINESE_CHINA = "zh-CN"
+    JAPANESE = "ja"
+    CHINESE_TAIWAN = "zh-TW"
+    KOREAN = "ko"

@@ -1,17 +1,25 @@
 __all__ = (
-    "LIBRARY_NAME",
-    "LIBRARY_VERSION",
-    "LIBRARY_GIT",
+    "LYSIA_VERSION",
+    "LYSIA_AUTHORS",
+    "LYSIA_GIT",
+
+    "LYSIA_LOGGER",
+
     "DISCORD_API_VERSION",
     "DISCORD_CDN_URL",
     "DISCORD_REST_URL"
 )
+from importlib.metadata import metadata
 
-from importlib.metadata import distribution
+from loguru import logger
 
-LIBRARY_NAME = "Lysia"
-LIBRARY_VERSION = distribution(LIBRARY_NAME).metadata["version"]
-LIBRARY_GIT = "https://github.com/SubeCraft/Lysia"
+metadata = metadata("lysia").json
+
+LYSIA_VERSION = metadata["version"]
+LYSIA_AUTHORS = metadata["author"]
+LYSIA_GIT = metadata["home_page"]
+
+LYSIA_LOGGER = logger.bind(name="lysia")
 
 DISCORD_API_VERSION = 10
 DISCORD_CDN_URL = "https://cdn.discordapp.com"
