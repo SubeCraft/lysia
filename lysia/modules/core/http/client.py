@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Any
 
 from httpx import AsyncClient, codes
 
-from ...constants import DISCORD_CDN_URL, LYSIA_GIT, LYSIA_LOGGER, LYSIA_VERSION
+from ....constants import DISCORD_CDN_URL, LYSIA_GIT, LYSIA_LOGGER, LYSIA_VERSION
 from ..errors import Forbidden, HTTPError, NotFound, Unauthorized
 from .types import TokenType
 

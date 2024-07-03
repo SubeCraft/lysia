@@ -4,7 +4,7 @@ from typing import Any, Literal, Self
 
 from pydantic import BaseModel, Field
 
-from ....constants import DISCORD_REST_URL
+from .....constants import DISCORD_REST_URL
 
 
 class RESTRoute(BaseModel):

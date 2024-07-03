@@ -2,7 +2,7 @@ __all__ = ("DiscordRessource", "DiscordRESTRessource")
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationInfo, field_validator
 
-from ..implementations.http.client import HTTPClient
+from ..modules.core.http import HTTPClient
 
 
 class DiscordRessource(BaseModel):

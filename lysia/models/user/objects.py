@@ -2,7 +2,7 @@ __all__ = ("User", "ClientUser")
 
 from pydantic import Field
 
-from ...http.routes.user import UserRoutes
+from ...modules.core.http.routes.user import UserRoutes
 from ..base import DiscordRESTRessource
 from ..common.locales import Locales
 from ..common.types import AssetHash, Snowflake
