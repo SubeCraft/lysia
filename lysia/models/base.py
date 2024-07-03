@@ -25,7 +25,4 @@ class DiscordRESTRessource(DiscordRessource):
         if isinstance(value, DiscordRESTRessource):
             value.rest = _info.data["rest"]
 
-            return value
-
         return value
-
