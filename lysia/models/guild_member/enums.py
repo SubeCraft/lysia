@@ -1,0 +1,21 @@
+__all__ = (
+    "GuildMemberFlags",
+)
+
+from enum import IntFlag
+
+
+class GuildMemberFlags(IntFlag):
+    NONE = 0
+
+    DID_REJOIN = 1 << 0
+    """Member has left and rejoined the guild."""
+
+    COMPLETED_ONBOARDING = 1 << 1
+    """Member has completed onboarding."""
+
+    BYPASSES_VERIFICATION = 1 << 2
+    """Member is exempt from guild verification requirements."""
+
+    STARTED_ONBOARDIN = 1 << 3
+    """"Member has started onboarding."""

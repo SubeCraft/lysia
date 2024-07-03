@@ -1,6 +1,6 @@
 __all__ = (
     "UserFlags",
-    "PremiumTypes"
+    "UserPremiumTypes"
 )
 
 from enum import IntEnum, IntFlag
@@ -58,7 +58,7 @@ class UserFlags(IntFlag):
     """User is an Active Developer."""
 
 
-class PremiumTypes(IntEnum):
+class UserPremiumTypes(IntEnum):
     """Discord User Premium Types."""
 
     NONE = 0

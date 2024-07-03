@@ -2,16 +2,16 @@ __all__ = ("User", "ClientUser")
 
 from pydantic import Field
 
-from ...implementations.http.routes.user import UserRoutes
-from ..base import DiscordRessource
+from ...http.routes.user import UserRoutes
+from ..base import DiscordRESTRessource
 from ..common.locales import Locales
 from ..common.types import AssetHash, Snowflake
-from .enums import PremiumTypes, UserFlags
+from .enums import UserFlags, UserPremiumTypes
 
 
-class User(DiscordRessource):
+class User(DiscordRESTRessource):
     """A Discord User."""
-    
+
     id: Snowflake = Field(default="")
     """The user's id."""
 
@@ -27,13 +27,13 @@ class User(DiscordRessource):
     avatar: AssetHash | None = Field(default=None)
     """The user's avatar hash."""
 
-    bot: bool = Field(default=False)
+    bot: bool | None = Field(default=None)
     """Whether the user belongs to an OAuth2 application."""
 
-    system: bool = Field(default=False)
+    system: bool | None = Field(default=None)
     """Whether the user is an Official Discord System user (part of the urgent message system)."""
 
-    mfa_enabled: bool = Field(default=False)
+    mfa_enabled: bool | None = Field(default=None)
     """Whether the user has two factor enabled on their account."""
 
     banner: str | None = Field(default=None)
@@ -42,22 +42,22 @@ class User(DiscordRessource):
     accent_color: int | None = Field(default=None)
     """The user's banner color encoded as an integer representation of hexadecimal color code."""
 
-    locale: Locales = Field(default=Locales.ENGLISH_US)
+    locale: Locales | None = Field(default=None)
     """The user's chosen language option."""
 
-    verified: bool = Field(default=False)
+    verified: bool | None = Field(default=None)
     """Whether the email on this account has been verified."""
 
     email: str | None = Field(default=None)
     """The user's email"""
 
-    flags: UserFlags = Field(default=UserFlags.NONE)
+    flags: UserFlags | None = Field(default=None)
     """The flags on a user's account."""
 
-    premium_type: PremiumTypes = Field(default=PremiumTypes.NONE)
+    premium_type: UserPremiumTypes | None = Field(default=None)
     """The type of Nitro subscription on a user's account."""
 
-    public_flags: UserFlags = Field(default=UserFlags.NONE)
+    public_flags: UserFlags | None = Field(default=None)
     """The public flags on a user's account."""
 
     avatar_decoration: AssetHash | None = Field(default=None)
@@ -106,12 +106,9 @@ class ClientUser(User):
 
         await self.rest.request(UserRoutes.LEAVE_GUILD.format(guild_id=guild_id))
 
-    # TODO: Add the following routes
-    # https://discord.com/developers/docs/resources/user#get-current-user-guilds
-    # https://discord.com/developers/docs/resources/user#get-current-user-guild-member
-    # https://discord.com/developers/docs/resources/user#create-dm
-    # https://discord.com/developers/docs/resources/user#create-group-dm
-    # https://discord.com/developers/docs/resources/user#get-current-user-connections
-    # https://discord.com/developers/docs/resources/user#get-current-user-application-role-connection
-    # https://discord.com/developers/docs/resources/user#update-current-user-application-role-connection
+    async def create_dm(self, recipient_id: Snowflake) -> dict:
+        """Create a new DM channel with a user."""
 
+        # TODO Add DM Channel object return.
+
+        return await self.rest.request(UserRoutes.CREATE_DM.format(recipient_id=recipient_id))
